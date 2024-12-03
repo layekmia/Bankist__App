@@ -1,0 +1,100 @@
+<!Doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+   <title>Bankist App</title>
+   <link rel="stylesheet" href="style.css">
+   <!-- Google poppins font link -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!-- nav section markup -->
+   <nav>
+      <div class="welcome-msg">
+         Log in to get started
+      </div>
+
+      <img src="assets/logo.png" alt="logo-img" class="logo">
+
+      <form class="login">
+         <input type="text" name="username" class="input-value input-username" placeholder="user">
+         <input type="password" name="password" class="input-value input-pin" placeholder="PIN">
+         <button class="login-btn">&#8594;</button>
+      </form>
+   </nav>
+
+   <!-- Main app section Markup -->
+    <main class="app">
+      <!-- Balance section -->
+      <div class="balance">
+         <div>
+            <p class="label-balance">Current balance</p>
+            <p class="lable-date">As of <span class="date">05/03/2024</span></p>
+         </div>
+         <p class="balance-value">0000€</p>
+      </div>
+      <!-- Movments section -->
+      <div class="movements">
+         <div class="movements-row">
+            <div class="label-movment label-movment-deposit">2 deposit</div>
+            <div class="movment-date">3 days ago</div>
+            <div class="movements-value">4000€</div>
+         </div>
+         <div class="movements-row">
+            <div class="label-movment label-movment-withdraw">1 withdrawal</div>
+            <div class="movment-date">24/01/2037</div>
+            <div class="movements-value">-378€</div>
+         </div>
+      </div>
+      <!-- summary markup -->
+      <div class="summary">
+         <div class="summary-label">in</div>
+         <div class="summary-value summary-in">0000€</div>
+         <div class=" summary-label">out</div>
+         <div class="summary-value summary-out">0000€</div>
+         <div class="summary-label">interest</div>
+         <div class="summary-value summary-interest">0000€</div>
+         <button class="sort-btn">&#8595; sort</button>
+      </div>
+      <!-- Money transfer section -->
+      <div class="operation operation-transfer">
+         <h2>Transfer money</h2>
+         <form class="form">
+            <input type="text" class="oper-input transfer-to">
+            <input type="number" class="oper-input transfer-amount">
+            <button class="oper-btn transfer-btn">&#8594;</button>
+            <p class="oper-label">Transfer to</p>
+            <p class="oper-label">Amount</p>
+         </form>
+      </div>
+      <!-- Request loan section -->
+      <div class="operation operation-loan">
+         <h2>Request loan</h2>
+         <form class="form loan-form">
+            <input type="text" class="oper-input loan-amount">
+            <button class="oper-btn loan-btn">&#8594;</button>
+            <p class="oper-label loan-label">Amount</p>
+         </form>
+      </div>
+      <!-- Home page close section -->
+      <div class="operation account-close">
+         <h2>Close account</h2>
+         <form class="form">
+            <input type="text" class="oper-input close-input-user">
+            <input type="number" class="oper-input close-input-pin">
+            <button class="oper-btn close-btn">&#8594;</button>
+            <p class="oper-label">Confirm user</p>
+            <p class="oper-label">Confirm PIN</p>
+         </form>
+      </div>
+      <!-- Log out sectoin Markpu -->
+       <div class="log-out-timer">
+         <p>You will be logged out in 05:00</p>
+       </div>
+    </main>
+   <script src="app.js"></script>
+</body>

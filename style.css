@@ -1,0 +1,225 @@
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+html{
+   font-size: 62.5%;
+   /* box-sizing: border-box; */
+}
+body{
+   height: 100vh;
+   background-color: #f3f3f3;
+   font-family: 'poppins', sans-serif;
+   padding:2rem;
+   color: #444444;
+}
+
+/* Nav section styling */
+nav{
+   padding: 0 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.welcome-msg{
+   font-size: 1.9rem;
+   font-weight: 500;
+}
+.logo{
+   width: 5.2rem;
+   height: 5.2rem;
+}
+.login{
+   display: flex;
+}
+.input-value{
+   width: 12rem;
+   padding: 0.9rem 2rem;
+   margin-right: 1rem;
+   text-align: center;
+   background-color: #fff;
+   border-radius: 10rem;
+   font-size: 1.6rem;
+   border: none;
+   outline: none;
+   border: 1px solid #fff;
+   transition: 0.2s all ease;
+}
+.input-value:focus{
+   border-color: #6666;
+}
+.login-btn{
+   font-size: 2.2rem;
+   border: none;
+   outline: none;
+   cursor: pointer;
+}
+
+.app{
+   max-width: 100rem;
+   margin: 4rem auto 0;
+   display: grid;
+   grid-template-columns: 4fr 3fr;
+   grid-template-rows: auto repeat(3,  15rem) auto;
+   gap: 2rem;
+   opacity: 0;
+   transition: 0.5s all ease;
+}
+.balance{
+   grid-column: 1 / span 2;
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+   margin-bottom: 2rem;
+}
+.label-balance{
+   font-size: 2.2rem;
+   font-weight: 500;
+   margin-bottom: -0.2rem;
+}
+.lable-date{
+   font-size: 1.4rem;
+   color: #888888;
+}
+.balance-value{
+   font-size: 4.5rem;
+   font-weight: 500;
+}
+
+/* Movements styling add */
+.movements{
+   grid-row: 2 / span 3;
+   background-color: #fff;
+   overflow: scroll;
+   border-radius: 1rem;
+}
+.movements-row{
+   padding: 2.2rem 4rem;
+   display: flex;
+   align-items: center;
+   border-bottom: 2px solid #f3f3f3;
+}
+.label-movment{
+   font-size: 1.1rem;
+   font-weight: 500;
+   text-transform: uppercase;
+   margin-right: 2rem;
+   padding: 0.5rem 0.8rem;
+   color: #fff;
+   border-radius: 1rem;
+}
+.label-movment-deposit{
+   background-color:#5dc17b ;
+}
+.label-movment-withdraw{
+   background-color: #e6315b;
+}
+.movment-date{
+   font-size: 1.1rem;
+   font-weight: 500;
+   text-transform: uppercase;
+   color: #666666;
+}
+.movements-value{
+   margin-left: auto;
+   font-size: 1.7rem;
+}
+.summary{
+   grid-row: 5 / 6;
+   display: flex;
+   align-items: center;
+   margin-top: 1rem;
+   padding: 0 0.3rem;
+}
+.summary-label{
+   font-size: 1.2rem;
+   margin-right: 0.8rem;
+   text-transform: uppercase;
+}
+.summary-value{
+   font-size: 2.2rem;
+   margin-right: 2.5rem;
+}
+.summary-in, .summary-interest{
+   color: #5dc17b;
+}
+.summary-out{
+   color: #e6315b;
+}
+.sort-btn{
+   margin-left: auto;
+   font-size: 1.3rem;
+   font-family: Arial, Helvetica, sans-serif;
+   border: none;
+   text-transform: uppercase;
+   cursor: pointer;
+}
+.sort-btn:hover{
+   color: #666666;
+}
+
+/* Operation section styling */
+.operation{
+   padding: 3rem 4rem;
+   border-radius: 1rem;
+}
+
+.operation-transfer{
+   background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+.operation-loan{
+   background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+.account-close{
+   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+h2{
+   font-size: 1.7rem;
+   margin-bottom: 1.5rem;
+   color: #333333;
+}
+.form{
+   display: grid;
+   grid-template-columns: 2.5fr 2.5fr 1fr;
+   grid-template-rows: auto auto;
+   gap: 0.4rem 1rem;
+}
+.form .oper-input{
+   width: 100%;
+   padding: 0.3rem 1rem;
+   border-radius: 0.7rem;
+   border: none;
+   background-color: rgba(255, 255, 255, 0.4);
+   font-size: 1.9rem;
+   color: #fff;
+   text-align: center;
+}
+.loan-form{
+   grid-template-columns: 2fr 1fr 2fr;
+}
+.loan-label{
+   grid-row: 2;
+}
+.oper-input:focus{
+   outline: none;
+   background-color: rgba(255, 255, 255, 0.6);
+}
+.oper-label{
+   text-align: center;
+   font-size: 1.3rem;
+   color: #333333;
+}
+.oper-btn{
+   border-radius: 0.7rem;
+   border: none;
+   font-size: 1.7rem;
+   font-family: Arial, Helvetica, sans-serif;
+   color: #000000;
+   cursor: pointer;
+}
+.log-out-timer{
+   margin-top: 1.9rem;
+   margin-left: auto;
+   font-size: 1.25rem;
+}
