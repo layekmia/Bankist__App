@@ -58,9 +58,10 @@ const btnSort = document.querySelector('.sort-btn');
 
 // Dispalymovments function;
 
-const displayMovments = function(movements){
+const displayMovments = function(movements, sort = false){
    containerMovments.innerHTML = '';
-   movements.forEach((mov , i) =>{
+   const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+   movs.forEach((mov , i) =>{
       const type = mov > 0 ? "deposit" : 'withdraw'
       const html = `
          <div class="movements-row">
@@ -75,9 +76,9 @@ const displayMovments = function(movements){
 // displayMovments(account1.movements);
 
 // Display balance fucntion;
-const displayBalance = function(movements){
-  const balance = movements.reduce((acc, curr) => acc + curr , 0);
-  labelBalance.textContent = `${balance}€`;
+const displayBalance = function(acc){
+  acc.balance = acc.movements.reduce((acc, curr) => acc + curr, 0) 
+  labelBalance.textContent = `${acc.balance}€`;
 }
 // displayBalance(account1.movements);
 
@@ -100,15 +101,15 @@ const displaySummary = function(movements){
 // Create username property function
 const createUsername = function(accounts){
    accounts.forEach(acc => {
-      acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('')
-   })
+      acc.username = acc.owner.toLowerCase().split(' ').map(name => name[0]).join('');
+})
 }
 createUsername(accounts);
 
 // Update ui funciotn
 const updateUi = function(acc){
    displayMovments(acc.movements);
-   displayBalance(acc.movements);
+   displayBalance(acc);
    displaySummary(acc.movements);
 }
 
@@ -116,6 +117,8 @@ const updateUi = function(acc){
 let currentAccount;
 btnLogin.addEventListener('click', function(e){
    e.preventDefault();
+   const currentDate = new Date();
+   labelDate.textContent= currentDate.toLocaleDateString();
    currentAccount = accounts.find(acc => acc.username === inputLoginUsername.value);
 
    if(currentAccount?.pin === Number(inputLoginPin.value)){
@@ -127,5 +130,45 @@ btnLogin.addEventListener('click', function(e){
       updateUi(currentAccount);
    };
    inputLoginUsername.value = inputLoginPin.value = '';
+});
 
+btnTransfer.addEventListener('click', function(e){
+   e.preventDefault();
+   const amount = Number(inputTransferAmount.value);
+
+   const receiverAccount = accounts.find(acc => acc.username === inputTransferTo.value);
+
+   if(amount > 0 && receiverAccount && currentAccount.balance >= amount && currentAccount.username !== receiverAccount.username){
+      currentAccount.movements.push(-amount);
+      receiverAccount.movements.push(amount);
+      updateUi(currentAccount);
+   }
+});
+
+btnLoan.addEventListener('click', function(e){
+   e.preventDefault();
+   const amount = Number(inputLoanAmount.value);
+   inputLoanAmount.value = '';
+   if(amount > 0 && currentAccount.movements.some(anyDeopsit => anyDeopsit >= amount * 0.1)){
+      currentAccount.movements.push(amount);
+      updateUi(currentAccount);
+   }
+});
+
+// Account close handelers 
+btnClose.addEventListener('click', function(e){
+   e.preventDefault();
+   if(inputCloseUsername.value === currentAccount.username && Number(inputClosePin.value) === currentAccount.pin){
+      const index = accounts.findIndex(acc => acc.username === inputCloseUsername.value);
+      accounts.splice(index, 1);
+
+      containerApp.style.opacity = 0;
+      labelWelcome.textContent = `Log in to get started`;
+   };
+   inputCloseUsername.value = inputClosePin.value = '';
+});
+let sorted = false;
+btnSort.addEventListener('click', function(e){
+   displayMovments(currentAccount.movements, !sorted);
+   sorted = sorted;
 })
