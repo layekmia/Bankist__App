@@ -1,100 +1,128 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
-   <title>Bankist App</title>
-   <link rel="stylesheet" href="style.css">
-   <!-- Google poppins font link -->
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body>
-   <!-- nav section markup -->
-   <nav>
-      <div class="welcome-msg">
-         Log in to get started
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
 
-      <img src="assets/logo.png" alt="logo-img" class="logo">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
 
+    <link rel="stylesheet" href="style.css" />
+    <title>Bankist</title>
+  </head>
+  <body>
+    <!-- TOP NAVIGATION -->
+    <nav>
+      <p class="welcome">Log in to get started</p>
+      <img src="logo.png" alt="Logo" class="logo" />
       <form class="login">
-         <input type="text" name="username" class="input-value input-username" placeholder="user">
-         <input type="password" name="password" class="input-value input-pin" placeholder="PIN">
-         <button class="login-btn">&#8594;</button>
+        <input
+          type="text"
+          placeholder="user"
+          class="login__input login__input--user"
+        />
+        <!-- In practice, use type="password" -->
+        <input
+          type="text"
+          placeholder="PIN"
+          maxlength="4"
+          class="login__input login__input--pin"
+        />
+        <button class="login__btn">&rarr;</button>
       </form>
-   </nav>
+    </nav>
 
-   <!-- Main app section Markup -->
     <main class="app">
-      <!-- Balance section -->
+      <!-- BALANCE -->
       <div class="balance">
-         <div>
-            <p class="label-balance">Current balance</p>
-            <p class="lable-date">As of <span class="date">05/03/2024</span></p>
-         </div>
-         <p class="balance-value">0000€</p>
+        <div>
+          <p class="balance__label">Current balance</p>
+          <p class="balance__date">
+            As of <span class="date">05/03/2037</span>
+          </p>
+        </div>
+        <p class="balance__value">0000€</p>
       </div>
-      <!-- Movments section -->
+
+      <!-- MOVEMENTS -->
       <div class="movements">
-         <div class="movements-row">
-            <div class="label-movment label-movment-deposit">2 deposit</div>
-            <div class="movment-date">3 days ago</div>
-            <div class="movements-value">4000€</div>
-         </div>
-         <div class="movements-row">
-            <div class="label-movment label-movment-withdraw">1 withdrawal</div>
-            <div class="movment-date">24/01/2037</div>
-            <div class="movements-value">-378€</div>
-         </div>
+        <div class="movements__row">
+          <div class="movements__type movements__type--deposit">2 deposit</div>
+          <div class="movements__date">3 days ago</div>
+          <div class="movements__value">4 000€</div>
+        </div>
+        <div class="movements__row">
+          <div class="movements__type movements__type--withdrawal">
+            1 withdrawal
+          </div>
+          <div class="movements__date">24/01/2037</div>
+          <div class="movements__value">-378€</div>
+        </div>
       </div>
-      <!-- summary markup -->
+
+      <!-- SUMMARY -->
       <div class="summary">
-         <div class="summary-label">in</div>
-         <div class="summary-value summary-in">0000€</div>
-         <div class=" summary-label">out</div>
-         <div class="summary-value summary-out">0000€</div>
-         <div class="summary-label">interest</div>
-         <div class="summary-value summary-interest">0000€</div>
-         <button class="sort-btn">&#8595; sort</button>
+        <p class="summary__label">In</p>
+        <p class="summary__value summary__value--in">0000€</p>
+        <p class="summary__label">Out</p>
+        <p class="summary__value summary__value--out">0000€</p>
+        <p class="summary__label">Interest</p>
+        <p class="summary__value summary__value--interest">0000€</p>
+        <button class="btn--sort">&downarrow; SORT</button>
       </div>
-      <!-- Money transfer section -->
-      <div class="operation operation-transfer">
-         <h2>Transfer money</h2>
-         <form class="form">
-            <input type="text" class="oper-input transfer-to">
-            <input type="number" class="oper-input transfer-amount">
-            <button class="oper-btn transfer-btn">&#8594;</button>
-            <p class="oper-label">Transfer to</p>
-            <p class="oper-label">Amount</p>
-         </form>
+
+      <!-- OPERATION: TRANSFERS -->
+      <div class="operation operation--transfer">
+        <h2>Transfer money</h2>
+        <form class="form form--transfer">
+          <input type="text" class="form__input form__input--to" />
+          <input type="number" class="form__input form__input--amount" />
+          <button class="form__btn form__btn--transfer">&rarr;</button>
+          <label class="form__label">Transfer to</label>
+          <label class="form__label">Amount</label>
+        </form>
       </div>
-      <!-- Request loan section -->
-      <div class="operation operation-loan">
-         <h2>Request loan</h2>
-         <form class="form loan-form">
-            <input type="text" class="oper-input loan-amount">
-            <button class="oper-btn loan-btn">&#8594;</button>
-            <p class="oper-label loan-label">Amount</p>
-         </form>
+
+      <!-- OPERATION: LOAN -->
+      <div class="operation operation--loan">
+        <h2>Request loan</h2>
+        <form class="form form--loan">
+          <input type="number" class="form__input form__input--loan-amount" />
+          <button class="form__btn form__btn--loan">&rarr;</button>
+          <label class="form__label form__label--loan">Amount</label>
+        </form>
       </div>
-      <!-- Home page close section -->
-      <div class="operation account-close">
-         <h2>Close account</h2>
-         <form class="form">
-            <input type="text" class="oper-input close-input-user">
-            <input type="password" class="oper-input close-input-pin">
-            <button class="oper-btn close-btn">&#8594;</button>
-            <p class="oper-label">Confirm user</p>
-            <p class="oper-label">Confirm PIN</p>
-         </form>
+
+      <!-- OPERATION: CLOSE -->
+      <div class="operation operation--close">
+        <h2>Close account</h2>
+        <form class="form form--close">
+          <input type="text" class="form__input form__input--user" />
+          <input
+            type="password"
+            maxlength="6"
+            class="form__input form__input--pin"
+          />
+          <button class="form__btn form__btn--close">&rarr;</button>
+          <label class="form__label">Confirm user</label>
+          <label class="form__label">Confirm PIN</label>
+        </form>
       </div>
-      <!-- Log out sectoin Markpu -->
-       <div class="log-out-timer">
-         <p>You will be logged out in 05:00</p>
-       </div>
+
+      <!-- LOGOUT TIMER -->
+      <p class="logout-timer">
+        You will be logged out in <span class="timer">05:00</span>
+      </p>
     </main>
-   <script src="app.js"></script>
-</body>
+
+    <!-- <footer>
+      &copy; by Jonas Schmedtmann. Don't claim as your own :)
+    </footer> -->
+
+    <script src="script.js"></script>
+  </body>
+</html>
