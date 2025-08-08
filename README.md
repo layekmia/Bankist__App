@@ -1,7 +1,6 @@
 # 💰 Bankist - Minimal Banking App
 
 A minimalist, single-page banking application built using **Vanilla JavaScript** and **CSS**, focused on dynamic UI updates, user actions, and session security — without any frameworks.
-
 ## 🚀 Live Preview
 
 🔗 [Live Site](https://layekmia.github.io/Bankist__App/)
@@ -52,3 +51,4 @@ A minimalist, single-page banking application built using **Vanilla JavaScript**
  ┣ 📄 index.html
  ┣ 📄 style.css
  ┗ 📄 app.js
+
